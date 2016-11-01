@@ -1,7 +1,6 @@
 # these commands set up the pi for transistor-pi
-
+# basic configuration:
 sudo raspi-config
-
 # opens the raspberry pi configuration tool. Within the tool:
 # 1. Expand filesystem
 # 2. Change the uaser password
@@ -13,4 +12,8 @@ sudo raspi-config
 #    Set hostname
 #    Enable SSH
 #    Enable SPI
+
+# Enable Wifi:
+sudo iwlist wlan0 scan | more       # scans for interfaces. Confirm that the network you want is there and what it's name is.
+
 
