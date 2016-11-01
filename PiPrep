@@ -1,0 +1,16 @@
+# these commands set up the pi for transistor-pi
+
+sudo raspi-config
+
+# opens the raspberry pi configuration tool. Within the tool:
+# 1. Expand filesystem
+# 2. Change the uaser password
+# 3. Internationalization options:
+#    set locale
+#    select keyboard
+#    Set time zone
+# 4. Advanced options:
+#    Set hostname
+#    Enable SSH
+#    Enable SPI
+
