@@ -1,4 +1,4 @@
-# these commands set up the pi for transistor-pi
+# these commands set up the pi for transistor-pi on a Raspian OS image.
 # basic configuration:
 sudo raspi-config
 # opens the raspberry pi configuration tool. Within the tool:
@@ -38,7 +38,7 @@ sudo apt-get install mc
 # update everything:
 sudo apt-get update
 sudo apt-get upgrade
-sudo rpi-update        # updates firmware. Note: may need to revert to earlier firmware if spi not working later.
+sudo rpi-update        # updates firmware. Note: may need to revert to earlier firmware if spi not working.
 
 # install mpc:
 sudo apt-get install mpc mpd
