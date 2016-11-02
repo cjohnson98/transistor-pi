@@ -14,4 +14,4 @@ A potentiometer replaces the original tuning capacitor. Turning the tuning knob 
 
 A usb battery pack (originally intended for use as a cellphone backup battery) provides power. A resistor voltage divider across the power leads feeds another A-D converter, which is read by the pi to determine the battery level. A low battery condition triggers an audio alert and shuts down the pi. The volume control includes an on-off switch, which will also initiate an orderly shutdown when the user turns the unit off. 
 
-Main program file is radio3.py, which starts when the system powers up. 
+The main program file is radio3.py, which starts when the system powers up. But MPD does most of the work, selecting the stream or album through playlists and setting the volume. The readpot3.py and readvolts3.py are just for testing the A to D converters, aren't normally used, and may be deleted after the system is working.
