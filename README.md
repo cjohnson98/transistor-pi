@@ -14,3 +14,5 @@ An audio amplifier on the pi output feeds the original radio's internal speaker.
 A potentiometer replaces the original tuning capacitor. Turning the tuning knob fully counterclockwise sets the tuning pot output to select Internet radio streams. Turning it fully clockwise sets it to select file folders that store MP3 music files. Intermediate points on the tuning dial selects particular streams or music folders.
 
 A usb battery pack (originally intended for use as a cellphone backup battery) provides power. A resistor voltage divider across the power leads feeds another A-D converter, which is read by the pi to determine the battery level. A low battery condition triggers an audio alert and shuts down the pi. The volume control includes an on-off switch, which will also initiate an orderly shutdown when the user turns the unit off. 
+
+Main program file is radio3.py, which starts when the system powers up. 
