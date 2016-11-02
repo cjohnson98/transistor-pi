@@ -45,5 +45,5 @@ sudo apt-get install mpc mpd
 
 # format usb memory stick and copy music to it
 
-
+-- more to come --
 
