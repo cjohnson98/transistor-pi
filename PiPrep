@@ -15,5 +15,35 @@ sudo raspi-config
 
 # Enable Wifi:
 sudo iwlist wlan0 scan | more       # scans for interfaces. Confirm that the network you want is there and what it's name is.
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf        # edit wpa_supplicant for wifi connection
+# for example, you might add:
+#   network={
+#      ssid="The_ESSID_for your network"
+#      psk="Your_wifi_password"
+#   }
+
+# reboot the pi.
+
+# confirm wifi connection and get ip address:
+ifconfig wlan0
+# will return connection information. Note the ip address.
+
+# return to the pi configuration tool.
+sudo raspi-config
+# under Advanced options, select Update to update the configuration tool.
+
+# install mc:
+sudo apt-get install mc
+
+# update everything:
+sudo apt-get update
+sudo apt-get upgrade
+sudo rpi-update        # updates firmware. Note: may need to revert to earlier firmware if spi not working later.
+
+# install mpc:
+sudo apt-get install mpc mpd
+
+# format usb memory stick and copy music to it
+
 
 
