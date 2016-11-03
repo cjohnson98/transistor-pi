@@ -1,4 +1,6 @@
-# these commands set up the pi for transistor-pi on a Raspian OS image.
+# These commands set up the pi for transistor-pi on a Raspian OS image. 
+# Do these things after writing the OS image to the pi SD card.
+
 # basic configuration:
 sudo raspi-config
 # opens the raspberry pi configuration tool. Within the tool:
@@ -42,6 +44,33 @@ sudo rpi-update        # updates firmware. Note: may need to revert to earlier f
 
 # install mpc:
 sudo apt-get install mpc mpd
+
+# install samba:
+sudo apt-get install samba samba-common-bin
+
+# add samba user:
+sudo smbpasswd -a pi
+# enter password at prompt
+
+# backup /etc/samba/smb.conf
+
+# edit smb.conf:
+sudo nano /etc/samba/smb.conf
+# Change workgroup to suit network
+# security=user
+# socket options=tcp_nodelay
+# add share:
+#   [usb]
+#   path = /media/USBSTICK
+#   valid users = pi
+#   writeable = yes
+#   browseable=yes
+
+# test samba configuration:
+testparm
+
+# restart samba (or reboot pi):
+sudo /etc/init.d/samba restart
 
 # format usb memory stick and copy music to it
 
