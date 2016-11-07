@@ -1,0 +1,23 @@
+Adding albums to the system
+
+1.  Store the album files in its own directory on the USB memory stick in the /albums directory.
+2.  SSH to the pi.
+3.  Stop the transistor pi main program:
+    sudo killall transistor3.py
+4.  Stop MPC and clear the current playlist:
+    mpc clear
+    The current stream will stop playing.
+5.  Find an empty playlist number by listing the current playlists:
+    mpc lsplaylists
+6.  Update the MPC database:
+    mpc update
+7.  Add the new album to the current playlist:
+    mpc ls albums/"New Album Name" | mpc add
+8.  Play the album to test it:
+    mpc play
+9.  Save the album to the selected empty playlist:
+    mpc save <number>
+10. Stop mpc:
+    mpc clear
+11. Reboot the system:
+    sudo reboot
