@@ -21,3 +21,8 @@ Adding albums to the system
     mpc clear
 11. Reboot the system:
     sudo reboot
+    
+    
+Adding streams
+
+Very similar to adding albums
