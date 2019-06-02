@@ -1,11 +1,11 @@
 # These commands set up the pi for transistor-pi on a Raspian OS image. 
 # Do these things after writing the OS image to the pi SD card.
 
-# basic configuration:
+# basic configuration: Note: most of this is easiest to handle through the Raspian GUI now.
 sudo raspi-config
 # opens the raspberry pi configuration tool. Within the tool:
 # 1. Expand filesystem
-# 2. Change the uaser password
+# 2. Change the user password
 # 3. Internationalization options:
 #    set locale
 #    select keyboard
@@ -56,21 +56,28 @@ sudo smbpasswd -a pi
 
 # edit smb.conf:
 sudo nano /etc/samba/smb.conf
-# Change workgroup to suit network
-# security=user
-# socket options=tcp_nodelay
-# add share:
-#   [usb]
-#   path = /media/USBSTICK
-#   valid users = pi
-#   writeable = yes
-#   browseable=yes
+# Change workgroup to suit network (or leave workgroup as WORKGROUP)
+# uncomment WINS support line and change line to read WINS support = yes
+# go to bottom of file and add share:
+#   [USBSTICK]    (or name share as desired)
+#   comment = Album files
+#   path = /media/pi/USBSTICK
+#   create mask = 0775
+#   directory mask = 0775
+#   read only = no
+#   browseable = yes
+#   public = yes
+#   force user = pi
+#   only guest = no
 
 # test samba configuration:
 testparm
 
 # restart samba (or reboot pi):
-sudo /etc/init.d/samba restart
+sudo service smbd restart
+sudo service nmbd restart
+
+# Test. Share should be accessible from Windows now.
 
 # format usb memory stick and copy music to it
 
